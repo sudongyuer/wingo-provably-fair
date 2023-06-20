@@ -50,14 +50,17 @@ export default function Home() {
               </thead>
               <tbody>
               {chain.map((seed, index) => {
-                const hash = crypto
-                    .createHmac("sha256", seed)
-                    .update(clientSeed)
-                    .digest("hex");
-                console.log(hash);
-                const result = Math.floor(( parseInt(hash.slice(0, 5), 16) / (parseInt('fffff',16)+1) )*10);
-                console.log(result);
-                return (
+                  function getHashAndResult() {
+                      const hash = crypto
+                          .createHmac("sha256", seed)
+                          .update(clientSeed)
+                          .digest("hex");
+                      const result = Math.floor((parseInt(hash.slice(0, 5), 16) / (parseInt('fffff', 16) + 1)) * 10);
+                      return {hash, result};
+                  }
+
+                  const {hash, result} = getHashAndResult();
+                  return (
                     <tr key={index}>
                       <td>
                         {result}

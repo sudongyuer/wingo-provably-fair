@@ -17,7 +17,7 @@ export default function Home() {
   }
 
   const clientSeed =
-      "00000000000000000004172a4be28d9cdf7e5e36836f1fc6a106ae73266bf47a";
+      "000000000000000000028fff14a6944dc30b7f188b1969c4518c393504da6501";
 
   return (
       <div className="App">
